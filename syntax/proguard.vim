@@ -1,7 +1,7 @@
 " Vim syntax file
 " Language:	ProGuard configuration
 " Maintainer:	David Reiss <dreiss@fb.com>
-" Version:	1
+" Version:	2
 
 " Quit when a syntax file was already loaded
 if exists("b:current_syntax")
@@ -10,7 +10,8 @@ endif
 
 syn region proguardComment start=/#/ end=/$/
 syn match proguardDirective "-keep[a-z,]*\>"
-syn match proguardDirective "-optimizations\>"
+syn match proguardDirective "-\(optimizations\|dontwarn\|assumenosideeffects\)\>"
+syn match proguardDirective "-\(dontshrink\|dontoptimize\|dontobfuscate\)\>"
 syn match proguardWildcard "\*"
 syn match proguardMembers "<\(fields\|methods\)>"
 
